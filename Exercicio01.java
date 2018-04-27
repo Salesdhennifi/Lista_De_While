@@ -5,8 +5,9 @@ public class Exercicio01{
         //Solicite nomes ao usuário até que o mesmo digite fim para o nome.
         String nome = JOptionPane.showInputDialog(null, "Digite seu nome: ");
         
-        while(!nome.equalsIgnoreCase("S")){
-            nome = JOptionPane.showInputDialog(null,"Se deseja sair digite \"S\"" + "\n" + "\nDigite seu nome novamente: ");
+        while(!nome.equals("Sair")){
+            JOptionPane.showInputDialog(null, "Digite seu nome: ");
+            nome = nome + 1;
         }
         
     }
