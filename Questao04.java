@@ -1,38 +1,55 @@
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 public class Questao04{
     public static void main(String[] args) {
+         /*Faça um programa que solicite a quantidade de carros que o usuário deseja
+cadastrar, após isto solicite para o usuário o modelo, valor e ano do carro até que
+atinja a quantidade de carros para cadastro.
+Apresente ao final:
+● Média do ano dos carros;
+● Média do valor dos carros;
+● Quantidade de carros que começam com a letra G;
+● Quantidade de carros que começam com a letra A */
 
-        /*Solicite para o usuário dois números. Apresente o seguinte menu e de acordo com a
-escolha deve ser apresentado a operação aritmética, isto deve ocorrer até que o
-mesmo escolha a opção de sair:  (1-soma / 2-subtrair / 3-multiplicar / 4-dividir / 5- sair) */
-        
-        int numero1 = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite um numero:  "));
-        int numero2 = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite outro numero:  "));
-        int tabela = 5;
-        int aux = 0;
-       
-    while(aux <= tabela){
-        int opcao =Integer.parseInt(JOptionPane.showInputDialog(null," 1-SOMA " + "\n2-SUBTRAIR" + 
-        "\n3-MULTIPLICAR" + "\n4-DIVIDIR" + "\n5-SAIR"));
-        aux = aux +1;
-        if(opcao == 1 ){
-            int soma = numero1 + numero2;
-            JOptionPane.showMessageDialog(null, "A soma dos valores: " + soma);
-        }else if(opcao == 2){
-            int subtrair = numero1 - numero2;
-            JOptionPane.showMessageDialog(null, "A Subtração dos valores é: " + subtrair);
-        }else if(opcao == 3){
-            int multiplicar = numero1 * numero2;
-            JOptionPane.showMessageDialog(null, "A Multiplcação dos valores é:  " + multiplicar);
-        }else if(opcao == 4){
-            int dividir = numero1 / numero2;
-            JOptionPane.showMessageDialog(null, "A Divisao dos valores:  " + dividir);
+        int qtdCad = 0;
+        int atual = 0;
+        Double valor = 0.0;
+        int ano = 0;
+        String modelo = "";
+        double somaAno = 0;
+        double somaValor = 0;
+        int letraG = 0;
+        int letraA = 0;
+        double mediaAno = 0;
+        double mediaValor = 0;
+
+        qtdCad =Integer.parseInt(JOptionPane.showInputDialog(null,"Sistema de Cadastro de Veículos." + "\nQuantos carros deseja Cadastrar: "));
+        while (atual < qtdCad) {
+            
+            modelo = JOptionPane.showInputDialog(null,"Digite o modelo do carro: ");
+            valor = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o valor do carro: "));
+            ano = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o Ano do carro: "));
+            atual = atual + 1;
+
+            somaAno = somaAno + ano;
+            somaValor = somaValor + valor;
+
+            mediaAno = somaAno / qtdCad;
+            mediaValor = somaValor / qtdCad;
+
+            char letra = modelo.charAt(0);
+
+            if (letra == 'g') {
+                letraG = letraG + 1;
+            } else if (letra == 'a') {
+                letraA = letraA + 1;
+            }
+
         }
-        
+        JOptionPane.showMessageDialog(null, "media dos anos: " + mediaAno);
+        JOptionPane.showMessageDialog(null, "media dos valores : " + mediaValor);
+        JOptionPane.showMessageDialog(null, "quantidade de modelos com letra G: " + letraG);
+        JOptionPane.showMessageDialog(null, "quantidade de modelos com letra A: " + letraA);
     }
-    JOptionPane.showMessageDialog(null, "OBRIGADA POR BRINCAR COMIGO!", null, JOptionPane.WARNING_MESSAGE, new ImageIcon(Questao04.class.getResource
-    ("/imagens/foto2.png")));
-    
-    }
+
 }
